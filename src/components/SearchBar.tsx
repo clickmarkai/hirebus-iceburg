@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 interface SearchBarProps {
+  job: any;
   onSearch: (what: string, where: string) => void;
 }
 
-const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
+const SearchBar: React.FC<SearchBarProps> = ({ job, onSearch }) => {
   const [what, setWhat] = useState('');
   const [where, setWhere] = useState('');
 
@@ -13,10 +14,17 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
     onSearch(what, where);
   };
 
+  useEffect(() => {
+    if (job) {
+      setWhat(job['job-title']);
+      setWhere(job.location);
+    }
+  }, [job]);
+
   return (
     <form onSubmit={handleSearch} className="flex items-center space-x-2">
       <div className="flex flex-1 border bg-white border-gray-400 rounded-lg">
-        <div className="flex-1 flex items-center relative px-4 py-2">
+        <div className="flex-1 flex items-center relative px-4">
           <label htmlFor="what" className="font-bold text-gray-700 mr-2">What</label>
           <input
             id="what"
@@ -24,11 +32,11 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
             value={what}
             onChange={(e) => setWhat(e.target.value)}
             placeholder="Job title, keywords, or company"
-            className="w-full h-10 border-none focus:ring-0 p-0"
+            className="w-full h-10 border-none focus:ring-0 pl-4"
           />
         </div>
         <div className="border-l border-gray-400 h-8 self-center"></div>
-        <div className="flex-1 flex items-center relative px-4 py-2">
+        <div className="flex-1 flex items-center relative px-4">
           <label htmlFor="where" className="font-bold text-gray-700 mr-2">Where</label>
           <input
             id="where"
@@ -36,13 +44,13 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
             value={where}
             onChange={(e) => setWhere(e.target.value)}
             placeholder="City, state, or zip code"
-            className="w-full h-10 border-none focus:ring-0 p-0"
+            className="w-full h-12 border-none focus:ring-0 pl-4"
           />
         </div>
       </div>
       <button
         type="submit"
-        className="bg-blue-700 text-white font-bold h-16 px-8 rounded-lg hover:bg-blue-800"
+        className="bg-blue-700 text-white font-bold h-12 px-4 rounded-lg hover:bg-blue-800"
       >
         Find Jobs
       </button>

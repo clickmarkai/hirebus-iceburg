@@ -4,7 +4,7 @@ import indeedLogo from '../assets/indeedlogo.png';
 const Header: React.FC = () => {
   return (
     <header className="bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4 border-b border-gray-200">
           <div className="flex items-center space-x-8">
             <img src={indeedLogo} alt="Indeed Logo" className="h-8 w-auto" />

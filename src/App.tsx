@@ -3,6 +3,7 @@ import { createClient } from '@supabase/supabase-js';
 import Header from './components/Header';
 import SearchBar from './components/SearchBar';
 import JobDetails from './components/JobDetails';
+import Footer from './components/Footer';
 import type { Job } from './types';
 import './App.css';
 
@@ -35,14 +36,15 @@ function App() {
   return (
     <div className="flex flex-col min-h-screen bg-gray-100">
       <Header />
-      <main className="w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <main className="w-full max-w-4xl ml-[130px] px-4 sm:px-6 lg:px-8 py-8">
         <div className="mb-6">
-          <SearchBar onSearch={handleSearch} />
+          <SearchBar job={job} onSearch={handleSearch} />
         </div>
         <div className="bg-white border border-gray-200 rounded-lg p-6">
           {job ? <JobDetails job={job} /> : <p>Loading job details...</p>}
         </div>
       </main>
+      <Footer />
     </div>
   );
 }

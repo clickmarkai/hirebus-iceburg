@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Job } from '../types';
-import { FiBookmark, FiLink, FiMapPin } from 'react-icons/fi';
+import { FiBookmark, FiLink, FiMapPin, FiFlag } from 'react-icons/fi';
 import { formatDescription } from '../utils';
 import payIcon from '../assets/pay.png';
 import jobTypeIcon from '../assets/jobtype.png';
@@ -21,9 +21,9 @@ const JobDetails: React.FC<JobDetailsProps> = ({ job }) => {
       <div className="mb-6">
         <h1 className="text-2xl font-bold">{job['job-title']}</h1>
         <div className="flex mt-2 text-base">
-          <p className="mr-2 font-semibold text-gray-800">{job.company}</p>
+          <p className="mr-2 text-gray-800">{job.company}</p>
           <a href="#" className="text-blue-600 mr-2">&#8599;</a>
-          <span className="mr-2 font-bold">{companyRating} &#9733;</span>
+          <span className="mr-2">{companyRating} &#9733;</span>
         </div>
         <p className="text-md text-gray-600 mt-1">{job.location}</p>
         <p className="text-md text-gray-700 mt-2 font-medium">{`Rp ${Number(job['salary-min']).toLocaleString()} - Rp ${Number(job['salary-max']).toLocaleString()} a month`}</p>
@@ -85,6 +85,15 @@ const JobDetails: React.FC<JobDetailsProps> = ({ job }) => {
           className="prose prose-sm max-w-none text-gray-800"
           dangerouslySetInnerHTML={{ __html: formatDescription(job['job-description'] || '') }} 
         />
+      </div>
+
+      <div className="border-t border-gray-200 my-6"></div>
+
+      <div className="mt-6">
+        <button className="flex items-center space-x-2 bg-gray-100 text-gray-700 px-4 py-2 rounded-md hover:bg-gray-200 border border-gray-300">
+          <FiFlag />
+          <span>Report job</span>
+        </button>
       </div>
     </div>
   );
