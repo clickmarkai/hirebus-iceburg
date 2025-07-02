@@ -3,10 +3,10 @@ export const formatDescription = (text: string | undefined | null): string => {
     return '<p>No description available.</p>';
   }
 
-  // Replace markdown bold, escaped hyphens, and newlines
+  // Replace markdown bold, remove back-to-back backslashes completely, and newlines
   const formattedText = text
     .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-    .replace(/\\-/g, '-')
+    .replace(/\\\\/g, '') // Remove back-to-back backslashes completely
     .replace(/\n/g, '<br />');
     
   return formattedText;
