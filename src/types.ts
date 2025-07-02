@@ -1,12 +1,29 @@
 export interface Job {
-  id: number;
+  id: string;
+  site?: string;
+  job_url?: string;
+  job_url_direct?: string;
+  title: string;
   company: string;
   location: string;
-  'job-title': string;
-  'salary-min': number;
-  'salary-max': number;
+  date_posted?: string;
+  job_type: string;
+  salary_source?: string;
   interval: string;
-  'job-type': string;
-  'job-description': string;
-  created_at: string;
+  min_amount: number;
+  max_amount: number;
+  currency?: string;
+  is_remote?: boolean;
+  emails?: string;
+  description: string;
+  company_url?: string;
+  company_logo?: string;
+  company_url_direct?: string;
+  company_addresses?: string;
+  company_num_employees?: string;
+  company_revenue?: string;
+  company_description?: string;
+  city?: string;
+  search_term?: string;
+  created_at?: string;
 } 

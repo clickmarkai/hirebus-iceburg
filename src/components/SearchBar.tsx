@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import type { Job } from '../types';
 
 interface SearchBarProps {
-  job: any;
+  job: Job | null;
   onSearch: (what: string, where: string) => void;
 }
 
@@ -16,7 +17,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ job, onSearch }) => {
 
   useEffect(() => {
     if (job) {
-      setWhat(job['job-title']);
+      setWhat(job.company);
       setWhere(job.location);
     }
   }, [job]);

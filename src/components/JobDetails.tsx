@@ -14,23 +14,21 @@ const JobDetails: React.FC<JobDetailsProps> = ({ job }) => {
     return null;
   }
 
-  const companyRating = '3.3';
 
   return (
     <div>
       <div className="mb-6">
-        <h1 className="text-2xl font-bold">{job['job-title']}</h1>
+        <h1 className="text-2xl font-bold">{job.title}</h1>
         <div className="flex mt-2 text-base">
           <p className="mr-2 text-gray-800">{job.company}</p>
           <a href="#" className="text-blue-600 mr-2">&#8599;</a>
-          <span className="mr-2">{companyRating} &#9733;</span>
         </div>
         <p className="text-md text-gray-600 mt-1">{job.location}</p>
-        <p className="text-md text-gray-700 mt-2 font-medium">{`Rp ${Number(job['salary-min']).toLocaleString()} - Rp ${Number(job['salary-max']).toLocaleString()} a month`}</p>
+        <p className="text-md text-gray-700 mt-2 font-medium">{`$${Number(job.min_amount).toLocaleString()} - $${Number(job.max_amount).toLocaleString()} ${job.interval}`}</p>
       </div>
 
       <div className="flex space-x-2 mb-6">
-        <a href={'#'} target="_blank" rel="noopener noreferrer" className="bg-blue-700 text-white py-2 px-6 rounded-lg font-bold hover:bg-blue-800 inline-flex text-base">
+        <a href={'#'} target="_blank" className="bg-blue-700 text-white py-2 px-6 rounded-lg font-bold hover:bg-blue-800 inline-flex text-base">
           Apply now
         </a>
         <button className="p-3 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50">
@@ -51,7 +49,7 @@ const JobDetails: React.FC<JobDetailsProps> = ({ job }) => {
             <div>
               <p className="font-semibold text-gray-800">Pay</p>
               <div className="mt-1">
-                <span className="bg-gray-100 text-gray-800 text-sm font-medium px-3 py-1 rounded-md border border-gray-200">{`Rp ${Number(job['salary-min']).toLocaleString()} - Rp ${Number(job['salary-max']).toLocaleString()} a month`}</span>
+                <span className="bg-gray-100 text-gray-800 text-sm font-medium px-3 py-1 rounded-md border border-gray-200">{`$${Number(job.min_amount).toLocaleString()} - $${Number(job.max_amount).toLocaleString()} ${job.interval}`}</span>
               </div>
             </div>
           </div>
@@ -60,7 +58,7 @@ const JobDetails: React.FC<JobDetailsProps> = ({ job }) => {
             <div>
               <p className="font-semibold text-gray-800">Job type</p>
               <div className="mt-1">
-                <span className="bg-gray-100 text-gray-800 text-sm font-medium px-3 py-1 rounded-md border border-gray-200">{job['job-type']}</span>
+                <span className="bg-gray-100 text-gray-800 text-sm font-medium px-3 py-1 rounded-md border border-gray-200">{job.job_type}</span>
               </div>
             </div>
           </div>
@@ -83,7 +81,7 @@ const JobDetails: React.FC<JobDetailsProps> = ({ job }) => {
         <h2 className="text-xl font-bold mb-4">Full job description</h2>
         <div 
           className="prose prose-sm max-w-none text-gray-800"
-          dangerouslySetInnerHTML={{ __html: formatDescription(job['job-description'] || '') }} 
+          dangerouslySetInnerHTML={{ __html: formatDescription(job.description || '') }} 
         />
       </div>
 
