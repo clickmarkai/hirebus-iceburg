@@ -68,9 +68,11 @@ function App() {
     return (
       <div className="flex flex-col min-h-screen bg-gray-100">
         <Header />
-        <main className="w-full max-w-4xl ml-[130px] px-4 sm:px-6 lg:px-8 py-8">
-          <div className="bg-white border border-gray-200 rounded-lg p-6">
-            <p>Loading job details...</p>
+        <main className="flex-1 flex justify-center items-start px-4 sm:px-6 lg:px-8 py-8">
+          <div className="w-full max-w-4xl">
+            <div className="bg-white border border-gray-200 rounded-lg p-6">
+              <p>Loading job details...</p>
+            </div>
           </div>
         </main>
         <Footer />
@@ -82,9 +84,11 @@ function App() {
     return (
       <div className="flex flex-col min-h-screen bg-gray-100">
         <Header />
-        <main className="w-full max-w-4xl ml-[130px] px-4 sm:px-6 lg:px-8 py-8">
-          <div className="bg-white border border-gray-200 rounded-lg p-6">
-            <p className="text-red-600">{error}</p>
+        <main className="flex-1 flex justify-center items-start px-4 sm:px-6 lg:px-8 py-8">
+          <div className="w-full max-w-4xl">
+            <div className="bg-white border border-gray-200 rounded-lg p-6">
+              <p className="text-red-600">{error}</p>
+            </div>
           </div>
         </main>
         <Footer />
@@ -95,16 +99,18 @@ function App() {
   return (
     <div className="flex flex-col min-h-screen bg-gray-100">
       <Header />
-      <main className="w-full max-w-4xl ml-[130px] px-4 sm:px-6 lg:px-8 py-8">
-        <div className="mb-6">
-          <SearchBar job={job} onSearch={handleSearch} />
-        </div>
-        <div className="bg-white border border-gray-200 rounded-lg p-6">
-          {job ? (
-            <JobDetails job={job} />
-          ) : (
-            <p>No job selected. Please provide a valid job ID in the URL.</p>
-          )}
+      <main className="flex-1 flex justify-center items-start px-4 sm:px-6 lg:px-8 py-8">
+        <div className="w-full max-w-4xl">
+          <div className="mb-6">
+            <SearchBar job={job} onSearch={handleSearch} />
+          </div>
+          <div className="bg-white border border-gray-200 rounded-lg p-6">
+            {job ? (
+              <JobDetails job={job} />
+            ) : (
+              <p>No job selected. Please provide a valid job ID in the URL.</p>
+            )}
+          </div>
         </div>
       </main>
       <Footer />
