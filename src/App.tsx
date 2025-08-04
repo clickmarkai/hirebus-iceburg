@@ -26,7 +26,7 @@ function App() {
       const { data, error } = await supabase
         .from('jobs')
         .select('*')
-        .eq('id', jobId)
+        .eq('job_key', jobId.split('-')[1])
         .single();
       
       if (error) {
