@@ -23,7 +23,6 @@ const JobDetails: React.FC<JobDetailsProps> = ({ job }) => {
           <p className="mr-2 text-gray-800">{job.company}</p>
           <a href="#" className="text-blue-600 mr-2">&#8599;</a>
         </div>
-        <p className="text-md text-gray-600 mt-1">{job.location}</p>
         <p className="text-md text-gray-700 mt-2 font-medium">{`$${Number(job.min_amount).toLocaleString()} - $${Number(job.max_amount).toLocaleString()} ${job.interval}`}</p>
       </div>
 

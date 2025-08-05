@@ -27,14 +27,14 @@ function App() {
         .from('jobs')
         .select('*')
         .eq('job_key', jobId)
-        .single();
+        .limit(1);
       
       if (error) {
         console.error('Error fetching job:', error);
         setError('Failed to fetch job details');
         setJob(null);
-      } else if (data) {
-        setJob(data);
+      } else if (data && data.length > 0) {
+        setJob(data[0]);
         setError(null);
       } else {
         setError('Job not found');
