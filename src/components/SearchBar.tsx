@@ -17,8 +17,8 @@ const SearchBar: React.FC<SearchBarProps> = ({ job, onSearch }) => {
 
   useEffect(() => {
     if (job) {
-      setWhat(job.company);
-      setWhere(job.location);
+      setWhat(job.job_company);
+      setWhere(job.company_city);
     }
   }, [job]);
 

@@ -18,8 +18,8 @@ const JobCard: React.FC<JobCardProps> = ({ job, onJobClick, isSelected }) => {
       <div className="flex justify-between">
         <div>
           <h2 className="text-lg font-bold text-blue-800">{job.title}</h2>
-          <p className="text-sm text-gray-700">{job.company}</p>
-          <p className="text-sm text-gray-500">{job.location}</p>
+          <p className="text-sm text-gray-700">{job.job_company}</p>
+          <p className="text-sm text-gray-500">{job.company_city}</p>
         </div>
         <div className="text-right">
           <button className="text-gray-400 hover:text-gray-600">
