@@ -26,7 +26,7 @@ function App() {
       const { data, error } = await supabase
         .from('scraped_leads')
         .select('*')
-        .eq('"Indeed Id (Job Key)"', jobId)
+        .eq('"Indeed Id"', jobId)
         .limit(1);
       
       if (error) {
